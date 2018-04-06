@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6cdc4cfda4f48239b02c38e6c69d73c" Name="Diagram1">
+        <EntityTypeShape EntityType="prueba_pabloModel.asistencia" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.categoria_torneo" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.clase" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.club" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.direcciones" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.dominante" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.estado_clase" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.personas" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.personas_torneos" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.rol" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.sedes" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.tipo_documento" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.tipo_torneo" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="prueba_pabloModel.torneo" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="prueba_pabloModel.fk_asistencia_clase" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_persona_asistencia" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_cat_tor" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_clase_sedes" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_estado_clase" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_club_persona" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_dir_persona" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_lado_dominante" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_ojo_dominante" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_persona_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_persona_tdoc" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_persona_torneo" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_per_torneo" ManuallyRouted="false" />
+        <AssociationConnector Association="prueba_pabloModel.fk_tipo_torneo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

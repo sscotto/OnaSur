@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="prueba_pabloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="asistencia">
+          <Key>
+            <PropertyRef Name="id_asistencia" />
+          </Key>
+          <Property Name="id_asistencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_clase" Type="int" />
+          <Property Name="id_persona" Type="int" />
+        </EntityType>
+        <EntityType Name="categoria_torneo">
+          <Key>
+            <PropertyRef Name="id_cat_tor" />
+          </Key>
+          <Property Name="id_cat_tor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="clase">
+          <Key>
+            <PropertyRef Name="id_clase" />
+          </Key>
+          <Property Name="id_clase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_estado_clase" Type="int" />
+          <Property Name="id_sedes" Type="int" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="club">
+          <Key>
+            <PropertyRef Name="id_club" />
+          </Key>
+          <Property Name="id_club" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="direcciones">
+          <Key>
+            <PropertyRef Name="id_direcciones" />
+          </Key>
+          <Property Name="id_direcciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pais" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="localidad" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="calle" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="numero" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="piso" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="departamento" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="cod_postal" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dominante">
+          <Key>
+            <PropertyRef Name="id_dominante" />
+          </Key>
+          <Property Name="id_dominante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estado_clase">
+          <Key>
+            <PropertyRef Name="id_estado_clase" />
+          </Key>
+          <Property Name="id_estado_clase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+          <Property Name="id_club" Type="int" Nullable="false" />
+          <Property Name="id_ojo_dominante" Type="int" Nullable="false" />
+          <Property Name="id_lado_dominante" Type="int" Nullable="false" />
+          <Property Name="id_tipo_doc" Type="int" Nullable="false" />
+          <Property Name="id_direcciones" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nro_doc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="federado" Type="int" Nullable="false" />
+          <Property Name="observaciones" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="personas_torneos">
+          <Key>
+            <PropertyRef Name="id_personas_torneos" />
+          </Key>
+          <Property Name="id_personas_torneos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_torneo" Type="int" />
+          <Property Name="id_persona" Type="int" />
+          <Property Name="id_cat_tor" Type="int" />
+          <Property Name="puntaje" Type="int" />
+          <Property Name="posicion" Type="int" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sedes">
+          <Key>
+            <PropertyRef Name="id_sedes" />
+          </Key>
+          <Property Name="id_sedes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tipo_documento">
+          <Key>
+            <PropertyRef Name="id_tipo_doc" />
+          </Key>
+          <Property Name="id_tipo_doc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_torneo">
+          <Key>
+            <PropertyRef Name="id_tipo_torneo" />
+          </Key>
+          <Property Name="id_tipo_torneo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="torneo">
+          <Key>
+            <PropertyRef Name="id_torneo" />
+          </Key>
+          <Property Name="id_torneo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo_torneo" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="anio" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_asistencia_clase">
+          <End Role="clase" Type="Self.clase" Multiplicity="0..1" />
+          <End Role="asistencia" Type="Self.asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clase">
+              <PropertyRef Name="id_clase" />
+            </Principal>
+            <Dependent Role="asistencia">
+              <PropertyRef Name="id_clase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cat_tor">
+          <End Role="categoria_torneo" Type="Self.categoria_torneo" Multiplicity="0..1" />
+          <End Role="personas_torneos" Type="Self.personas_torneos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria_torneo">
+              <PropertyRef Name="id_cat_tor" />
+            </Principal>
+            <Dependent Role="personas_torneos">
+              <PropertyRef Name="id_cat_tor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_clase_sedes">
+          <End Role="sedes" Type="Self.sedes" Multiplicity="0..1" />
+          <End Role="clase" Type="Self.clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sedes">
+              <PropertyRef Name="id_sedes" />
+            </Principal>
+            <Dependent Role="clase">
+              <PropertyRef Name="id_sedes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_club_persona">
+          <End Role="club" Type="Self.club" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="club">
+              <PropertyRef Name="id_club" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_club" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dir_persona">
+          <End Role="direcciones" Type="Self.direcciones" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="direcciones">
+              <PropertyRef Name="id_direcciones" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_direcciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estado_clase">
+          <End Role="estado_clase" Type="Self.estado_clase" Multiplicity="0..1" />
+          <End Role="clase" Type="Self.clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_clase">
+              <PropertyRef Name="id_estado_clase" />
+            </Principal>
+            <Dependent Role="clase">
+              <PropertyRef Name="id_estado_clase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lado_dominante">
+          <End Role="dominante" Type="Self.dominante" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dominante">
+              <PropertyRef Name="id_dominante" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_lado_dominante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ojo_dominante">
+          <End Role="dominante" Type="Self.dominante" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dominante">
+              <PropertyRef Name="id_dominante" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_ojo_dominante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_per_torneo">
+          <End Role="torneo" Type="Self.torneo" Multiplicity="0..1" />
+          <End Role="personas_torneos" Type="Self.personas_torneos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="torneo">
+              <PropertyRef Name="id_torneo" />
+            </Principal>
+            <Dependent Role="personas_torneos">
+              <PropertyRef Name="id_torneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_asistencia">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="asistencia" Type="Self.asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="asistencia">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_tdoc">
+          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="id_tipo_doc" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_tipo_doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_torneo">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="personas_torneos" Type="Self.personas_torneos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="personas_torneos">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_torneo">
+          <End Role="tipo_torneo" Type="Self.tipo_torneo" Multiplicity="0..1" />
+          <End Role="torneo" Type="Self.torneo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_torneo">
+              <PropertyRef Name="id_tipo_torneo" />
+            </Principal>
+            <Dependent Role="torneo">
+              <PropertyRef Name="id_tipo_torneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="prueba_pabloModelStoreContainer">
+          <EntitySet Name="asistencia" EntityType="Self.asistencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categoria_torneo" EntityType="Self.categoria_torneo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clase" EntityType="Self.clase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="club" EntityType="Self.club" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="direcciones" EntityType="Self.direcciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dominante" EntityType="Self.dominante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_clase" EntityType="Self.estado_clase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personas_torneos" EntityType="Self.personas_torneos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sedes" EntityType="Self.sedes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_documento" EntityType="Self.tipo_documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_torneo" EntityType="Self.tipo_torneo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="torneo" EntityType="Self.torneo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_asistencia_clase" Association="Self.fk_asistencia_clase">
+            <End Role="clase" EntitySet="clase" />
+            <End Role="asistencia" EntitySet="asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cat_tor" Association="Self.fk_cat_tor">
+            <End Role="categoria_torneo" EntitySet="categoria_torneo" />
+            <End Role="personas_torneos" EntitySet="personas_torneos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_clase_sedes" Association="Self.fk_clase_sedes">
+            <End Role="sedes" EntitySet="sedes" />
+            <End Role="clase" EntitySet="clase" />
+          </AssociationSet>
+          <AssociationSet Name="fk_club_persona" Association="Self.fk_club_persona">
+            <End Role="club" EntitySet="club" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dir_persona" Association="Self.fk_dir_persona">
+            <End Role="direcciones" EntitySet="direcciones" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estado_clase" Association="Self.fk_estado_clase">
+            <End Role="estado_clase" EntitySet="estado_clase" />
+            <End Role="clase" EntitySet="clase" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lado_dominante" Association="Self.fk_lado_dominante">
+            <End Role="dominante" EntitySet="dominante" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ojo_dominante" Association="Self.fk_ojo_dominante">
+            <End Role="dominante" EntitySet="dominante" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_per_torneo" Association="Self.fk_per_torneo">
+            <End Role="torneo" EntitySet="torneo" />
+            <End Role="personas_torneos" EntitySet="personas_torneos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_asistencia" Association="Self.fk_persona_asistencia">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="asistencia" EntitySet="asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_rol" Association="Self.fk_persona_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_tdoc" Association="Self.fk_persona_tdoc">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_torneo" Association="Self.fk_persona_torneo">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="personas_torneos" EntitySet="personas_torneos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_torneo" Association="Self.fk_tipo_torneo">
+            <End Role="tipo_torneo" EntitySet="tipo_torneo" />
+            <End Role="torneo" EntitySet="torneo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="prueba_pabloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="asistencia">
+          <Key>
+            <PropertyRef Name="id_asistencia" />
+          </Key>
+          <Property Name="id_asistencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_clase" Type="Int32" />
+          <Property Name="id_persona" Type="Int32" />
+          <NavigationProperty Name="clase" Relationship="Self.fk_asistencia_clase" FromRole="asistencia" ToRole="clase" />
+          <NavigationProperty Name="personas" Relationship="Self.fk_persona_asistencia" FromRole="asistencia" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="categoria_torneo">
+          <Key>
+            <PropertyRef Name="id_cat_tor" />
+          </Key>
+          <Property Name="id_cat_tor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="personas_torneos" Relationship="Self.fk_cat_tor" FromRole="categoria_torneo" ToRole="personas_torneos" />
+        </EntityType>
+        <EntityType Name="clase">
+          <Key>
+            <PropertyRef Name="id_clase" />
+          </Key>
+          <Property Name="id_clase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_estado_clase" Type="Int32" />
+          <Property Name="id_sedes" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="asistencia" Relationship="Self.fk_asistencia_clase" FromRole="clase" ToRole="asistencia" />
+          <NavigationProperty Name="sedes" Relationship="Self.fk_clase_sedes" FromRole="clase" ToRole="sedes" />
+          <NavigationProperty Name="estado_clase" Relationship="Self.fk_estado_clase" FromRole="clase" ToRole="estado_clase" />
+        </EntityType>
+        <EntityType Name="club">
+          <Key>
+            <PropertyRef Name="id_club" />
+          </Key>
+          <Property Name="id_club" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personas" Relationship="Self.fk_club_persona" FromRole="club" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="direcciones">
+          <Key>
+            <PropertyRef Name="id_direcciones" />
+          </Key>
+          <Property Name="id_direcciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pais" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="localidad" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="calle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numero" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="piso" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="departamento" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_postal" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personas" Relationship="Self.fk_dir_persona" FromRole="direcciones" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="dominante">
+          <Key>
+            <PropertyRef Name="id_dominante" />
+          </Key>
+          <Property Name="id_dominante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personas" Relationship="Self.fk_lado_dominante" FromRole="dominante" ToRole="personas" />
+          <NavigationProperty Name="personas1" Relationship="Self.fk_ojo_dominante" FromRole="dominante" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="estado_clase">
+          <Key>
+            <PropertyRef Name="id_estado_clase" />
+          </Key>
+          <Property Name="id_estado_clase" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="clase" Relationship="Self.fk_estado_clase" FromRole="estado_clase" ToRole="clase" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="id_persona" />
+          </Key>
+          <Property Name="id_persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <Property Name="id_club" Type="Int32" Nullable="false" />
+          <Property Name="id_ojo_dominante" Type="Int32" Nullable="false" />
+          <Property Name="id_lado_dominante" Type="Int32" Nullable="false" />
+          <Property Name="id_tipo_doc" Type="Int32" Nullable="false" />
+          <Property Name="id_direcciones" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nro_doc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="federado" Type="Int32" Nullable="false" />
+          <Property Name="observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="asistencia" Relationship="Self.fk_persona_asistencia" FromRole="personas" ToRole="asistencia" />
+          <NavigationProperty Name="club" Relationship="Self.fk_club_persona" FromRole="personas" ToRole="club" />
+          <NavigationProperty Name="direcciones" Relationship="Self.fk_dir_persona" FromRole="personas" ToRole="direcciones" />
+          <NavigationProperty Name="dominante" Relationship="Self.fk_lado_dominante" FromRole="personas" ToRole="dominante" />
+          <NavigationProperty Name="dominante1" Relationship="Self.fk_ojo_dominante" FromRole="personas" ToRole="dominante" />
+          <NavigationProperty Name="rol" Relationship="Self.fk_persona_rol" FromRole="personas" ToRole="rol" />
+          <NavigationProperty Name="tipo_documento" Relationship="Self.fk_persona_tdoc" FromRole="personas" ToRole="tipo_documento" />
+          <NavigationProperty Name="personas_torneos" Relationship="Self.fk_persona_torneo" FromRole="personas" ToRole="personas_torneos" />
+        </EntityType>
+        <EntityType Name="personas_torneos">
+          <Key>
+            <PropertyRef Name="id_personas_torneos" />
+          </Key>
+          <Property Name="id_personas_torneos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_torneo" Type="Int32" />
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="id_cat_tor" Type="Int32" />
+          <Property Name="puntaje" Type="Int32" />
+          <Property Name="posicion" Type="Int32" />
+          <NavigationProperty Name="categoria_torneo" Relationship="Self.fk_cat_tor" FromRole="personas_torneos" ToRole="categoria_torneo" />
+          <NavigationProperty Name="personas" Relationship="Self.fk_persona_torneo" FromRole="personas_torneos" ToRole="personas" />
+          <NavigationProperty Name="torneo" Relationship="Self.fk_per_torneo" FromRole="personas_torneos" ToRole="torneo" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="id_rol" />
+          </Key>
+          <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personas" Relationship="Self.fk_persona_rol" FromRole="rol" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="sedes">
+          <Key>
+            <PropertyRef Name="id_sedes" />
+          </Key>
+          <Property Name="id_sedes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="clase" Relationship="Self.fk_clase_sedes" FromRole="sedes" ToRole="clase" />
+        </EntityType>
+        <EntityType Name="tipo_documento">
+          <Key>
+            <PropertyRef Name="id_tipo_doc" />
+          </Key>
+          <Property Name="id_tipo_doc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personas" Relationship="Self.fk_persona_tdoc" FromRole="tipo_documento" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="tipo_torneo">
+          <Key>
+            <PropertyRef Name="id_tipo_torneo" />
+          </Key>
+          <Property Name="id_tipo_torneo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="torneo" Relationship="Self.fk_tipo_torneo" FromRole="tipo_torneo" ToRole="torneo" />
+        </EntityType>
+        <EntityType Name="torneo">
+          <Key>
+            <PropertyRef Name="id_torneo" />
+          </Key>
+          <Property Name="id_torneo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipo_torneo" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="anio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="personas_torneos" Relationship="Self.fk_per_torneo" FromRole="torneo" ToRole="personas_torneos" />
+          <NavigationProperty Name="tipo_torneo" Relationship="Self.fk_tipo_torneo" FromRole="torneo" ToRole="tipo_torneo" />
+        </EntityType>
+        <Association Name="fk_asistencia_clase">
+          <End Role="clase" Type="Self.clase" Multiplicity="0..1" />
+          <End Role="asistencia" Type="Self.asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clase">
+              <PropertyRef Name="id_clase" />
+            </Principal>
+            <Dependent Role="asistencia">
+              <PropertyRef Name="id_clase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_asistencia">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="asistencia" Type="Self.asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="asistencia">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cat_tor">
+          <End Role="categoria_torneo" Type="Self.categoria_torneo" Multiplicity="0..1" />
+          <End Role="personas_torneos" Type="Self.personas_torneos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria_torneo">
+              <PropertyRef Name="id_cat_tor" />
+            </Principal>
+            <Dependent Role="personas_torneos">
+              <PropertyRef Name="id_cat_tor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_clase_sedes">
+          <End Role="sedes" Type="Self.sedes" Multiplicity="0..1" />
+          <End Role="clase" Type="Self.clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sedes">
+              <PropertyRef Name="id_sedes" />
+            </Principal>
+            <Dependent Role="clase">
+              <PropertyRef Name="id_sedes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estado_clase">
+          <End Role="estado_clase" Type="Self.estado_clase" Multiplicity="0..1" />
+          <End Role="clase" Type="Self.clase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_clase">
+              <PropertyRef Name="id_estado_clase" />
+            </Principal>
+            <Dependent Role="clase">
+              <PropertyRef Name="id_estado_clase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_club_persona">
+          <End Role="club" Type="Self.club" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="club">
+              <PropertyRef Name="id_club" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_club" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dir_persona">
+          <End Role="direcciones" Type="Self.direcciones" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="direcciones">
+              <PropertyRef Name="id_direcciones" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_direcciones" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lado_dominante">
+          <End Role="dominante" Type="Self.dominante" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dominante">
+              <PropertyRef Name="id_dominante" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_lado_dominante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ojo_dominante">
+          <End Role="dominante" Type="Self.dominante" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dominante">
+              <PropertyRef Name="id_dominante" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_ojo_dominante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_rol">
+          <End Role="rol" Type="Self.rol" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rol">
+              <PropertyRef Name="id_rol" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_tdoc">
+          <End Role="tipo_documento" Type="Self.tipo_documento" Multiplicity="1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_documento">
+              <PropertyRef Name="id_tipo_doc" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="id_tipo_doc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_persona_torneo">
+          <End Role="personas" Type="Self.personas" Multiplicity="0..1" />
+          <End Role="personas_torneos" Type="Self.personas_torneos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="id_persona" />
+            </Principal>
+            <Dependent Role="personas_torneos">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_per_torneo">
+          <End Role="torneo" Type="Self.torneo" Multiplicity="0..1" />
+          <End Role="personas_torneos" Type="Self.personas_torneos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="torneo">
+              <PropertyRef Name="id_torneo" />
+            </Principal>
+            <Dependent Role="personas_torneos">
+              <PropertyRef Name="id_torneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tipo_torneo">
+          <End Role="tipo_torneo" Type="Self.tipo_torneo" Multiplicity="0..1" />
+          <End Role="torneo" Type="Self.torneo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_torneo">
+              <PropertyRef Name="id_tipo_torneo" />
+            </Principal>
+            <Dependent Role="torneo">
+              <PropertyRef Name="id_tipo_torneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="prueba_pabloEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="asistencia" EntityType="Self.asistencia" />
+          <EntitySet Name="categoria_torneo" EntityType="Self.categoria_torneo" />
+          <EntitySet Name="clase" EntityType="Self.clase" />
+          <EntitySet Name="club" EntityType="Self.club" />
+          <EntitySet Name="direcciones" EntityType="Self.direcciones" />
+          <EntitySet Name="dominante" EntityType="Self.dominante" />
+          <EntitySet Name="estado_clase" EntityType="Self.estado_clase" />
+          <EntitySet Name="personas" EntityType="Self.personas" />
+          <EntitySet Name="personas_torneos" EntityType="Self.personas_torneos" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="sedes" EntityType="Self.sedes" />
+          <EntitySet Name="tipo_documento" EntityType="Self.tipo_documento" />
+          <EntitySet Name="tipo_torneo" EntityType="Self.tipo_torneo" />
+          <EntitySet Name="torneo" EntityType="Self.torneo" />
+          <AssociationSet Name="fk_asistencia_clase" Association="Self.fk_asistencia_clase">
+            <End Role="clase" EntitySet="clase" />
+            <End Role="asistencia" EntitySet="asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_asistencia" Association="Self.fk_persona_asistencia">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="asistencia" EntitySet="asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cat_tor" Association="Self.fk_cat_tor">
+            <End Role="categoria_torneo" EntitySet="categoria_torneo" />
+            <End Role="personas_torneos" EntitySet="personas_torneos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_clase_sedes" Association="Self.fk_clase_sedes">
+            <End Role="sedes" EntitySet="sedes" />
+            <End Role="clase" EntitySet="clase" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estado_clase" Association="Self.fk_estado_clase">
+            <End Role="estado_clase" EntitySet="estado_clase" />
+            <End Role="clase" EntitySet="clase" />
+          </AssociationSet>
+          <AssociationSet Name="fk_club_persona" Association="Self.fk_club_persona">
+            <End Role="club" EntitySet="club" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dir_persona" Association="Self.fk_dir_persona">
+            <End Role="direcciones" EntitySet="direcciones" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lado_dominante" Association="Self.fk_lado_dominante">
+            <End Role="dominante" EntitySet="dominante" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ojo_dominante" Association="Self.fk_ojo_dominante">
+            <End Role="dominante" EntitySet="dominante" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_rol" Association="Self.fk_persona_rol">
+            <End Role="rol" EntitySet="rol" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_tdoc" Association="Self.fk_persona_tdoc">
+            <End Role="tipo_documento" EntitySet="tipo_documento" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_persona_torneo" Association="Self.fk_persona_torneo">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="personas_torneos" EntitySet="personas_torneos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_per_torneo" Association="Self.fk_per_torneo">
+            <End Role="torneo" EntitySet="torneo" />
+            <End Role="personas_torneos" EntitySet="personas_torneos" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipo_torneo" Association="Self.fk_tipo_torneo">
+            <End Role="tipo_torneo" EntitySet="tipo_torneo" />
+            <End Role="torneo" EntitySet="torneo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="prueba_pabloModelStoreContainer" CdmEntityContainer="prueba_pabloEntities">
+          <EntitySetMapping Name="asistencia">
+            <EntityTypeMapping TypeName="prueba_pabloModel.asistencia">
+              <MappingFragment StoreEntitySet="asistencia">
+                <ScalarProperty Name="id_asistencia" ColumnName="id_asistencia" />
+                <ScalarProperty Name="id_clase" ColumnName="id_clase" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categoria_torneo">
+            <EntityTypeMapping TypeName="prueba_pabloModel.categoria_torneo">
+              <MappingFragment StoreEntitySet="categoria_torneo">
+                <ScalarProperty Name="id_cat_tor" ColumnName="id_cat_tor" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clase">
+            <EntityTypeMapping TypeName="prueba_pabloModel.clase">
+              <MappingFragment StoreEntitySet="clase">
+                <ScalarProperty Name="id_clase" ColumnName="id_clase" />
+                <ScalarProperty Name="id_estado_clase" ColumnName="id_estado_clase" />
+                <ScalarProperty Name="id_sedes" ColumnName="id_sedes" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="club">
+            <EntityTypeMapping TypeName="prueba_pabloModel.club">
+              <MappingFragment StoreEntitySet="club">
+                <ScalarProperty Name="id_club" ColumnName="id_club" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="direcciones">
+            <EntityTypeMapping TypeName="prueba_pabloModel.direcciones">
+              <MappingFragment StoreEntitySet="direcciones">
+                <ScalarProperty Name="id_direcciones" ColumnName="id_direcciones" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="localidad" ColumnName="localidad" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="piso" ColumnName="piso" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="cod_postal" ColumnName="cod_postal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dominante">
+            <EntityTypeMapping TypeName="prueba_pabloModel.dominante">
+              <MappingFragment StoreEntitySet="dominante">
+                <ScalarProperty Name="id_dominante" ColumnName="id_dominante" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_clase">
+            <EntityTypeMapping TypeName="prueba_pabloModel.estado_clase">
+              <MappingFragment StoreEntitySet="estado_clase">
+                <ScalarProperty Name="id_estado_clase" ColumnName="id_estado_clase" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personas">
+            <EntityTypeMapping TypeName="prueba_pabloModel.personas">
+              <MappingFragment StoreEntitySet="personas">
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_club" ColumnName="id_club" />
+                <ScalarProperty Name="id_ojo_dominante" ColumnName="id_ojo_dominante" />
+                <ScalarProperty Name="id_lado_dominante" ColumnName="id_lado_dominante" />
+                <ScalarProperty Name="id_tipo_doc" ColumnName="id_tipo_doc" />
+                <ScalarProperty Name="id_direcciones" ColumnName="id_direcciones" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nro_doc" ColumnName="nro_doc" />
+                <ScalarProperty Name="federado" ColumnName="federado" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personas_torneos">
+            <EntityTypeMapping TypeName="prueba_pabloModel.personas_torneos">
+              <MappingFragment StoreEntitySet="personas_torneos">
+                <ScalarProperty Name="id_personas_torneos" ColumnName="id_personas_torneos" />
+                <ScalarProperty Name="id_torneo" ColumnName="id_torneo" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="id_cat_tor" ColumnName="id_cat_tor" />
+                <ScalarProperty Name="puntaje" ColumnName="puntaje" />
+                <ScalarProperty Name="posicion" ColumnName="posicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="prueba_pabloModel.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sedes">
+            <EntityTypeMapping TypeName="prueba_pabloModel.sedes">
+              <MappingFragment StoreEntitySet="sedes">
+                <ScalarProperty Name="id_sedes" ColumnName="id_sedes" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_documento">
+            <EntityTypeMapping TypeName="prueba_pabloModel.tipo_documento">
+              <MappingFragment StoreEntitySet="tipo_documento">
+                <ScalarProperty Name="id_tipo_doc" ColumnName="id_tipo_doc" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_torneo">
+            <EntityTypeMapping TypeName="prueba_pabloModel.tipo_torneo">
+              <MappingFragment StoreEntitySet="tipo_torneo">
+                <ScalarProperty Name="id_tipo_torneo" ColumnName="id_tipo_torneo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="torneo">
+            <EntityTypeMapping TypeName="prueba_pabloModel.torneo">
+              <MappingFragment StoreEntitySet="torneo">
+                <ScalarProperty Name="id_torneo" ColumnName="id_torneo" />
+                <ScalarProperty Name="id_tipo_torneo" ColumnName="id_tipo_torneo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
