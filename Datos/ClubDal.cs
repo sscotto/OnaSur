@@ -28,5 +28,13 @@ namespace Datos
             prueba_pabloEntities db = new prueba_pabloEntities();
             return db.club.Where(c => c.descripcion == descripcion).FirstOrDefault();
         }
+
+        public void deleteClub(club club)
+        {
+            prueba_pabloEntities db = new prueba_pabloEntities();
+            db.club.Attach(club);
+            db.club.Remove(club);
+            db.SaveChanges();
+        }
     }
 }
